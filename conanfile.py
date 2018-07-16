@@ -22,6 +22,7 @@ class XtensorioConan(ConanFile):
                 installer.install("openimageio")
                 installer.install("libsndfile")
                 installer.install("zlib")
+                installer.install("freetype2")
             else:
                 raise ConanException("Don't know package name for other distros")
         else:
@@ -30,7 +31,6 @@ class XtensorioConan(ConanFile):
     def requirements(self):
         self.requires("xtensor/0.16.4@darcamo/stable")
         self.requires("xtl/0.4.12@darcamo/stable")
-        # self.requires("zlib/1.2.11@conan/stable")
 
     def source(self):
         tools.get("https://github.com/QuantStack/xtensor-io/archive/{0}.zip".format(self.version))
@@ -49,4 +49,4 @@ conan_basic_setup()""")
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["OpenImageIO"]
+        self.cpp_info.libs = ["OpenImageIO", "sndfile", "z"]
