@@ -12,8 +12,13 @@ class XtensorioConan(ConanFile):
     description = "xtensor plugin to read and write images, audio files and numpy (compressed) npz "
     no_copy_source = True
     homepage = "https://github.com/QuantStack/xtensor-io"
+    settings = "compiler"
     generators = "cmake"
     # No settings/options are necessary, this is header only
+
+    def configure(self):
+        if self.settings.compiler.libcxx != "libstdc++11":
+            raise ConanException("xtensor-io only works with libcxx set to C++11 API (libstdc++11 is set in your conan profile)")
 
     def system_requirements(self):
         if tools.os_info.is_linux:
