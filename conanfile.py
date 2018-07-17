@@ -28,6 +28,11 @@ class XtensorioConan(ConanFile):
                 installer.install("libsndfile")
                 installer.install("zlib")
                 installer.install("freetype2")
+            elif tools.os_info.linux_distro == "ubuntu":
+                installer.install("libopenimageio-dev")
+                installer.install("libsndfile1-dev")
+                installer.install("libghc-zlib-dev")
+                installer.install("libfreetype6-dev")
             else:
                 raise ConanException("Don't know package name for other distros")
         else:
