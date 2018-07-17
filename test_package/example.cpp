@@ -13,7 +13,7 @@
 
 
 int main() {
-    auto lightsaber = xt::load_image("../../../saber.png");
+    // auto lightsaber = xt::load_image("../../../../saber.png");
 
     std::cout << "It worked!" << std::endl;
 }

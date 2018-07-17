@@ -14,6 +14,7 @@ class XtensorioConan(ConanFile):
     homepage = "https://github.com/QuantStack/xtensor-io"
     settings = "compiler"
     generators = "cmake"
+    exports = "saber.png"
     # No settings/options are necessary, this is header only
 
     def configure(self):
