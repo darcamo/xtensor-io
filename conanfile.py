@@ -6,7 +6,7 @@ import os
 
 class XtensorioConan(ConanFile):
     name = "xtensor-io"
-    version = "0.4.0"
+    version = "0.8.0"
     license = "BSD-3"
     url = "https://github.com/darcamo/conan-xtensor-io"
     description = "xtensor plugin to read and write images, audio files and numpy (compressed) npz "
@@ -40,8 +40,8 @@ class XtensorioConan(ConanFile):
             raise ConanException("Implement-me")
 
     def requirements(self):
-        self.requires("xtensor/0.16.4@darcamo/stable")
-        self.requires("xtl/0.4.12@darcamo/stable")
+        self.requires("xtensor/[>=0.20.8]@darcamo/stable")
+        self.requires("xtl/[>=0.6.4]@darcamo/stable")
 
     def source(self):
         tools.get("https://github.com/QuantStack/xtensor-io/archive/{0}.zip".format(self.version))
